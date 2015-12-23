@@ -415,9 +415,13 @@ a:link,a:active,a:hover,a:visited{
 	margin-bottom: 15px;
 }
 #radioThongke {
-	display: inline;
+	padding-left: 150px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin: 0px;
+	height: 56px;
+
 }
-div #thongke {
-	float: right;
-	
-}
+
+
+
