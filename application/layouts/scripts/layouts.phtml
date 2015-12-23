@@ -1,0 +1,48 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+    
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+<div id="main">
+	<div id="banner">
+	   <div style="float:left">
+	       <p class ="headerText">Chương Trình Quản lý Doanh Nghiệp dệt</p>
+	    </div>
+	    <div id="loginForm">
+	    <?php
+            include("login.php");                  
+        ?>
+        </div>
+    </div>
+    
+    <div id="pagebody">
+
+        <?php 
+  //        echo $this->layout()->content;     
+        ?>
+
+    </div>
+    <div id="footer">
+        <div class ="container row">
+            <a href="<?php echo HOST_PROJECT."/index/khachhang"?>" class = "footerText">Trang chủ</a>
+            <a href="#" class = "footerText">Giới Thiệu</a>
+            <a href="#" class = "footerText">Tuyển Dụng</a>
+            <a href="#" class = "footerText">Liên Hệ</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

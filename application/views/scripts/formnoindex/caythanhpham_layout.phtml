@@ -1,0 +1,24 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="formLabel" >Tên Cây Thành Phẩm</td>
+                <td class="formEdit"><?=$this->element->getElement('TenCTP'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel">Số Mét Vải</td>
+                <td class="formEdit" ><?=$this->element->getElement('sometvai'); ?></td>
+            </tr>
+            
+            <tr>
+			  <td class="formLabel" ></td>
+              <td  class="formEdit"><?=$this->element->getElement('them'); ?></td> 
+            </tr>         
+        </tbody>
+    </table>
+</div>

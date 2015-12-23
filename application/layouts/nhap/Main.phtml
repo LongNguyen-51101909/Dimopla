@@ -1,0 +1,100 @@
+<?php 
+        require_once '/../header.phtml';
+?>
+
+<?php 
+        if($this->param->getParam("ncc") == "true")
+        {
+            require_once 'nhacungcap.php';
+        }
+        
+        if($this->param->getParam("nhapsoi") == "true")
+        {
+            require_once 'nhapsoi.php';
+        }
+        
+        if($this->param->getParam("nhapmoc") == "true")
+        {
+            require_once 'nhapmoc.php';
+        }
+        
+        if($this->param->getParam("khohang") == "true")
+        {
+            require_once 'khohang.php';
+        }
+        
+        if($this->param->getParam("loaisoi") == "true")
+        {
+            require_once 'loaisoi.php';
+        }
+        
+        if($this->param->getParam("loaivai") == "true")
+        {
+            require_once 'loaivai.php';
+        }
+        
+        if($this->param->getParam("khachhang") == "true")
+        {
+            require_once 'khachhang.php';
+        }    
+
+        if($this->param->getParam("mau") == "true")
+        {
+            require_once 'mau.php';
+        }
+        
+        if($this->param->getParam("hopdong") == "true")
+        {
+            require_once 'hopdong.php';
+        }
+        
+        if($this->param->getParam("donhang") == "true")
+        {
+            require_once 'donhang.php';
+        }
+        
+        if($this->param->getParam("khachhang_detail") == "true")
+        {
+            require_once 'khachhang_detail.php';
+        }
+        
+        if($this->param->getParam("caymoc") == "true")
+        {
+            require_once 'caymoc.php';
+        }
+        
+        if($this->param->getParam("chonnguyenlieu") == "true")
+        {
+            require_once 'chonnguyenlieu.php';
+        }
+        
+        if($this->param->getParam("lonhuom") == "true")
+        {
+            require_once 'lonhuom.php';
+        }
+        
+        if($this->param->getParam("chonkhohang") == "true")
+        {
+            require_once 'chonkhohang.php';
+        }
+        
+        if($this->param->getParam("chonkhotpp") == "true")
+        {
+            require_once 'chonkhotpp.php';
+        }
+        
+        if($this->param->getParam("caythanhpham") == "true")
+        {
+            require_once 'caythanhpham.php';
+        }
+        
+        if($this->param->getParam("donxuat") == "true")
+        {
+            require_once 'donxuat.php';
+        }
+        
+        
+        
+
+      
+?>

@@ -1,0 +1,49 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="formLabel" >Tên hợp đồng </td>
+                <td class="formEdit"><?=$this->element->getElement('tenhopdong'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel">Mô tả</td>
+                <td class="formEdit" ><?=$this->element->getElement('mota'); ?></td>
+            </tr>
+            <tr >
+                <td class="formLabel" >Ngày ký</td>
+                <td class="formEdit"><?=$this->element->getElement('ngayky'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel" >Số tấn sợi</td>
+                <td class="formEdit"><?=$this->element->getElement('sotansoi'); ?></td>   
+            </tr>
+            
+            <tr >
+                <td class="formLabel" >Thành tiền</td>
+                <td class="formEdit"><?=$this->element->getElement('thanhtien'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel" >Loại màu</td>
+                <td class="formEdit"><?=$this->element->getElement('mamau'); ?></td>   
+            </tr>
+
+            <tr >
+                <td class="formLabel" >Loại vải</td>
+                <td class="formEdit"><?=$this->element->getElement('maloaivai'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel" >Nhà cung cấp</td>
+                <td class="formEdit"><?=$this->element->getElement('manhacungcap'); ?></td>   
+            </tr>
+            <tr>
+              <td class="formLabel" ></td>
+              <td  class="them"><?=$this->element->getElement('them'); ?></td> 
+            </tr>         
+        </tbody>
+    </table>
+</div>

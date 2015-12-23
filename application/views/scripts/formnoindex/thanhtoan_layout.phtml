@@ -1,0 +1,48 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;margin-left:40px;margin-top: 20px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="formLabel" >Nhà Cung Cấp</td>
+                <td class="formEdit"><p class = "FormHightlight"><?=$this->element->getElement('tenncc')->getValue(); ?></p></td>   
+            </tr>
+            <tr >
+                <td class="formLabel">Tiền Nợ</td>
+                <td class="formEdit" ><p class = "FormHightlight"><?=$this->element->getElement('tienno')->getValue(); ?></p></td>
+            </tr>
+            
+            <tr >
+                <td class="formLabel" >Số Dư Công Ty</td>
+                <td class="formEdit"><p class = "FormHightlight"><?=$this->element->getElement('sodu')->getValue(); ?></p></td>   
+            </tr>
+            
+            <tr >
+                <td class="formLabel" >Tên Hóa Đơn</td>
+                <td class="formEdit"><?=$this->element->getElement('tenhoadon'); ?></td>
+                <td ><?=$this->element->getElement('mancc'); ?></td>   
+            </tr>
+            
+            <tr >
+                <td class="formLabel" >Tiền Thanh Toán</td>
+                <td class="formEdit"><?=$this->element->getElement('tienthanhtoan'); ?></td>
+                <td ><?=$this->element->getElement('mancc'); ?></td>   
+            </tr>  
+            <tr >
+                <td class="formLabel" >Ngày Thanh Toán</td>
+                <td class="formEdit"><?=$this->element->getElement('ngaythanhtoan'); ?></td>
+            </tr> 
+            <tr >
+                <td class="formLabel" >Hình Thức</td>
+                <td class="formEdit"><?=$this->element->getElement('hinhthuc'); ?></td>
+            </tr>           
+            <tr>
+				<td class="formLabel" ></td>
+				<td  class="formEdit"><?=$this->element->getElement('them'); ?></td> 
+            </tr>         
+        </tbody>
+    </table>
+</div>

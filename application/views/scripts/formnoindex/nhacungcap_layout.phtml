@@ -1,0 +1,32 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="formLabel" >Tên Nhà Cung Cấp</td>
+                <td class="formEdit"><?=$this->element->getElement('ten'); ?></td>
+            </tr>
+            <tr >
+                <td class="formLabel" >Số điện thoại</td>
+                <td class="formEdit"><?=$this->element->getElement('sdt'); ?></td>
+            </tr>
+            <tr >
+                <td class="formLabel" >Địa chỉ</td>
+                <td class="formEdit"><?=$this->element->getElement('diachi'); ?></td>
+            </tr>
+            <tr >
+                <td class="formLabel" >Fax</td>
+                <td class="formEdit"><?=$this->element->getElement('fax'); ?></td>
+            </tr>
+            <tr >
+                <td class="formLabel" ></td>
+                <td class="formEdit"><?=$this->element->getElement('them'); ?></td>
+            </tr>
+                        
+        </tbody>
+    </table>
+</div>

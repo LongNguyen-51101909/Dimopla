@@ -1,0 +1,44 @@
+<?php 
+        
+        require_once '/../header.phtml';
+?>
+<?php 
+    
+    if($this->param->getParam("khachhang_detail") == "true")
+    {
+        require_once 'khachhang_detail.php';
+    }
+    else if($this->param->getParam("hopdong_detail") == "true")
+    {
+        require_once 'hopdong_detail.php';
+    }
+    else if($this->param->getParam("caymoc_detail") == "true")
+    {
+        require_once 'caymoc_detail.php';
+    }
+    else if($this->param->getParam("lonhuom_detail") == "true")
+    {
+        require_once 'lonhuom_detail.php';
+    }
+    else if($this->param->getParam("ctp_detail") == "true")
+    {
+        require_once 'ctp_detail.php';
+    }
+    else if($this->param->getParam("kho_detail") == "true")
+    {
+        require_once 'kho_detail.php';
+    }
+    else if($this->param->getParam("donxuat_detail") == "true")
+    {
+        require_once 'donxuat_detail.php';
+    }
+    else if($this->param->getParam("congty") == "true")
+    {
+        require_once 'congty.php';
+    }
+    else 
+    {
+        require_once 'khachhang_all.php';
+    }
+      
+?>

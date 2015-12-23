@@ -1,0 +1,31 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="tendonhangcLabel" >Tên Đơn Hàng</td>
+                <td class="tendonhangEdit"><?=$this->element->getElement('tendonhang'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel">Ngày Đặt Hàng</td>
+                <td class="formEdit" ><?=$this->element->getElement('ngaydathang'); ?></td>
+            </tr>
+            <tr >
+                <td class="formLabel" >Tiền Đặt Hàng</td>
+                <td class="formEdit"><?=$this->element->getElement('tiendathang'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel" >Số Mét Vải</td>
+                <td class="formEdit"><?=$this->element->getElement('sometvai'); ?></td>   
+            </tr>            
+            <tr>
+               <td class="formLabel" ></td>
+              <td  class="formEdit"><?=$this->element->getElement('them'); ?></td> 
+            </tr>         
+        </tbody>
+    </table>
+</div>

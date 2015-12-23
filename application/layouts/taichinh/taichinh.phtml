@@ -1,0 +1,159 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+
+    require_once '/../header.phtml';
+    $router = Zend_Controller_Front::getInstance()->getRouter();
+    
+    $urlchitiet = $router->assemble(array('option' => 'chitiet'));
+    $urlthem = $router->assemble(array('option' => 'thanhtoan'));
+    
+    $data = new My_Data();
+    
+    $hightlight ="" ;
+    $choose = $this->param->getParams();
+    $option = "";
+    if(!array_key_exists("option",$choose) || $choose['option'] == 'chitiet')
+        $option ="chitiet";
+    else 
+        $option = "thanhtoan";
+    
+    $tk = new Model_Taikhoan();
+    $taikhoan = $tk->getRow();  
+    $no = $data->getTongNo();
+    $sodu = $data->convertCurrency($taikhoan['SoDu']);
+    $tongno = $data->convertCurrency($no);
+    $khadung = $data->convertCurrency($taikhoan['SoDu']-$no);
+    
+    
+    ?>
+     
+    <div>
+
+            <div class="mybutton">
+                <a href="<?php echo $urlchitiet ?>">Chi Tiết</a>
+                <a href="<?php echo $urlthem ?>">Thanh Toán</a>
+            </div>    
+
+            <span style="clear: both"></span>  
+            <br><br><br>
+            <?php
+                if($option== "chitiet")
+                {
+                    ?><div class= "taichinh">
+                        <p>Số dư công ty   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   <?php echo $sodu;?></p>
+                        <p>Tổng nợ công ty &nbsp&nbsp&nbsp&nbsp<?php echo $tongno;?></p>
+                        <p>Số dư khả dụng  &nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $khadung?></p>
+                    </div><?php
+             
+                }
+                else 
+                {
+                    echo "<br><br>";
+                    $form = new Form_Chonncc();
+                    
+                    
+                    if($this->param->isPost())
+                    {
+                        $post = $this->param->getParams();
+                        
+//                         echo "<pre>";
+//                         print_r($post);
+//                         echo "</pre>";
+                        
+                        if(!array_key_exists('tienthanhtoan',$post))
+                        {
+                            $param = $this->param->getPost();
+                            
+                            $mancc = $param['manhacungcap'];
+                            $ncc = new Model_Nhacungcap();
+                            $nhacungcap = $ncc->getWhere($mancc);
+                            
+                            $update = array("manhacungcap" => $mancc);
+                            $form->populate($update);
+                            echo $form;
+                            
+                            if($nhacungcap['No'] != 0)
+                            {
+                                $formThanhToan = new Form_Noindex_Thanhtoan();
+                                $formThanhToan->createForm($mancc);
+                                echo $formThanhToan;
+                            }
+                            else 
+                            {
+                                echo "<div class='long_message'>";
+                                echo "Công ty đã trả hết nợ cho Nhà Cung Cấp này."."<br/>";
+                                echo "</div>";
+                            }
+                        }
+                        elseif (array_key_exists('tienthanhtoan',$post))
+                        {
+                            $mancc = $post['mancc'];
+                            $ncc = new Model_Nhacungcap();
+                            $nhacungcap = $ncc->getWhere($mancc);
+                            
+                            $update = array("manhacungcap" => $mancc);
+                            $form->populate($update);
+                            echo $form;
+                            
+                            $check = new Form_Valid_Hoadon($post,$taikhoan['SoDu'],$nhacungcap['No']);
+                            
+                            if(!$check->valid($post))
+                            {
+                                $formThanhToan = new Form_Noindex_Thanhtoan();
+                                $formThanhToan->createForm($mancc);
+                                $formThanhToan->populate($post);
+                                echo $formThanhToan;
+                                
+                                echo "<div class='message'>";
+                                foreach($check->messages as $item)
+                                {
+                                    echo $item."<br/>";
+                                }
+                                echo "</div>";
+                            }
+                            else 
+                            {
+                                $hd = new Model_Hoadon();
+                                $mydate = Zend_Locale_Format::getDate($post['ngaythanhtoan'],array("date_format"=>"dd.MM.yyyy"));
+                                $date_str =  $mydate['year']."-". $mydate['month']."-". $mydate['day'];
+                                $data = array(
+                                    "MaHoaDon"=>null,
+                                    "TenHoaDon"=>$post['tenhoadon'],
+                                    "SoTien"=>$post['tienthanhtoan'],
+                                    "NgayThanhToan"=>$date_str,
+                                    "HinhThuc"=>$post['hinhthuc'],
+                                    "MaNhaCungCap"=>$mancc,
+                                );
+                                
+                                // insert hoa don
+                                $hd->insert_hoadon($data);
+                                
+                                // update tai khoan cong ty
+                                $tienconlai = $taikhoan['SoDu'] - $post['tienthanhtoan'];
+                                $noconlai = $taikhoan['TongNo'] - $post['tienthanhtoan'];
+                                $updatetk = array ('SoDu'=>$tienconlai,'TongNo'=>$noconlai);
+                                $tk->update_data($taikhoan['MaTaiKhoan'], $updatetk);
+                                
+                                //update so no cua nha cung cap
+                                $noncc = $nhacungcap['No'] - $post['tienthanhtoan'];
+                                $update_ncc = array("No"=>$noncc);
+                                $ncc->update_data($nhacungcap['MaNhaCungCap'], $update_ncc);
+                            }
+                        }
+                            
+                    }
+                    else 
+                    {
+                        echo $form;
+                    }
+                }
+            ?>
+    </div>
+    <?php 
+    
+//     echo "<pre>";
+//     print_r($this->param);
+//     echo "</pre>";
+
+    ?>

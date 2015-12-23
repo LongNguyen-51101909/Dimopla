@@ -1,0 +1,93 @@
+<?php 
+        echo $this->headMeta();
+        echo $this->headLink();
+        
+        require_once '/../header.phtml';
+        
+        
+        
+        $hightlight ="" ;
+        $choose = $this->param->getParams();
+        
+        if(array_key_exists('khachhang',$choose)) $hightlight = "khachhang";
+        else if(array_key_exists('donhang',$choose)) $hightlight = "donhang";
+        else if(array_key_exists('hopdong',$choose)) $hightlight = "hopdong";
+        else if(array_key_exists('caymoc',$choose)) $hightlight = "caymoc";
+        else if(array_key_exists('caymoc_detail',$choose)) $hightlight = "caymoc";
+        else if(array_key_exists('taoctp',$choose)) $hightlight = "caythanhpham";
+        else if(array_key_exists('lonhuom',$choose)) $hightlight = "lonhuom";
+        else if(array_key_exists('khohang',$choose)) $hightlight = "khohang";
+        else if(array_key_exists('caythanhpham',$choose)) $hightlight = "caythanhpham";
+        else if(array_key_exists('ctp_detail',$choose)) $hightlight = "caythanhpham";
+        else if(array_key_exists('khotp',$choose)) $hightlight = "khotp";
+        else if(array_key_exists('donxuat',$choose)) $hightlight = "donxuat";
+        else if(array_key_exists('hoadon',$choose)) $hightlight = "hoadon";
+        else if(array_key_exists('loaivai',$choose)) $hightlight = "loaivai";
+        else if(array_key_exists('loaisoi',$choose)) $hightlight = "loaisoi";
+        else if(array_key_exists('mau',$choose)) $hightlight = "mau";
+        else if(array_key_exists('nhacungcap',$choose)) $hightlight = "nhacungcap";
+        else if(array_key_exists('khosoi',$choose)) $hightlight = "khosoi";
+        else if(array_key_exists('khomoc',$choose)) $hightlight = "khomoc";
+        else $hightlight = "khachhang";
+        
+        $router = Zend_Controller_Front::getInstance()->getRouter();
+            
+            
+?>
+
+
+<div id="mainql">
+    <div style="float: left">
+<!--         <p class="quanly_title">Quản lý dữ liệu</p> -->
+        <div style="display:block" id = "mainmenu">
+            <p <?php if($hightlight=="khachhang") echo 'class ="highlight"';?> ><a  href="<?php echo HOST_PROJECT."/index/tim/khachhang/true"?>">Khách Hàng</a></p>
+            <p <?php if($hightlight=="donhang") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/donhang/true"?>">Đơn Hàng</a></p>
+            <p <?php if($hightlight=="hopdong") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/hopdong/true"?>">Hợp Đồng </a></p>
+            <p <?php if($hightlight=="caymoc") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/caymoc/true"?>">Cây Mộc</a></p>
+            <p <?php if($hightlight=="lonhuom") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/lonhuom/true"?>">Lô Nhuộm</a></p>
+            <p <?php if($hightlight=="caythanhpham") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/caythanhpham/true"?>">Cây Thành Phẩm</a></p>
+            <p <?php if($hightlight=="donxuat") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/donxuat/true"?>">Đơn Xuất</a></p>
+            <p <?php if($hightlight=="hoadon") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/hoadon/true"?>">Hóa Đơn</a></p>
+            <p <?php if($hightlight=="loaivai") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/loaivai/true"?>">Loại Vải</a></p>
+            <p <?php if($hightlight=="loaisoi") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/loaisoi/true"?>">Loại Sợi</a></p>
+            <p <?php if($hightlight=="mau") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/mau/true"?>">Màu</a></p>
+            <p <?php if($hightlight=="khohang") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/khohang/true"?>">Kho Hàng</a></p>
+            <p <?php if($hightlight=="khosoi") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/khosoi/true"?>">Kho Sợi</a></p>
+            <p <?php if($hightlight=="khomoc") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/khomoc/true"?>">Kho Mộc</a></p>
+            <p <?php if($hightlight=="khotp") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/khotp/true"?>">Kho TP</a></p>
+            <p <?php if($hightlight=="nhacungcap") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/tim/nhacungcap/true"?>">Nhà Cung Cấp</a></p>
+            
+        </div>
+        <span style="clear: both"></span>
+    </div>
+ 
+</div>
+<div id="bodycontent">
+        <?php
+    $myparam = $this->param->getParams();
+    
+    if(array_key_exists('khachhang',$myparam))
+    {
+        require_once APPLICATION_PATH.'/layouts/tim/khachhang.php';
+    }
+    else if(array_key_exists('donhang',$myparam))
+    {
+        require_once APPLICATION_PATH.'/layouts/tim/donhang.php';
+    }
+    else if(array_key_exists('hopdong',$myparam))
+    {
+        require_once APPLICATION_PATH.'/layouts/tim/hopdong.php';
+    }
+    else if(array_key_exists('lonhuom',$myparam))
+    {
+        require_once APPLICATION_PATH.'/layouts/tim/lonhuom.php';
+    }
+    else
+        {
+            require_once APPLICATION_PATH.'/layouts/tim/khachhang.php';
+        }
+        
+        ?>
+    </div>  
+    <span style="clear: both"></span>
+</div>

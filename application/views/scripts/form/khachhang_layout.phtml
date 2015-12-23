@@ -1,0 +1,28 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="loginLable" >Tên Khách hàng</td>
+                <td class="loginEdit"><?=$this->element->getElement('ten'); ?></td>
+            </tr>
+            <tr >
+                <td class="loginLable" >Số điện thoại</td>
+                <td class="loginEdit"><?=$this->element->getElement('sdt'); ?></td>
+            </tr>
+            <tr >
+                <td class="loginLable" >Địa chỉ</td>
+                <td class="loginEdit"><?=$this->element->getElement('diachi'); ?></td>
+            </tr>            
+            <tr >
+                <td class="loginLable" ></td>
+                <td class="loginEdit"><?=$this->element->getElement('them'); ?></td>
+            </tr>
+                        
+        </tbody>
+    </table>
+</div>

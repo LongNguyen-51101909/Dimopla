@@ -1,0 +1,36 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="formLabel" >Tên Cây Mộc</td>
+                <td class="formEdit"><?=$this->element->getElement('tencaymoc'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel">Số Mét Vải</td>
+                <td class="formEdit" ><?=$this->element->getElement('sometvai'); ?></td>
+            </tr>
+            <tr >
+                <td class="formLabel" >Mã Loại Vải</td>
+                <td class="formEdit"><?=$this->element->getElement('maloaivai'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel" >Mã Hợp Đồng</td>
+                <td class="formEdit"><?=$this->element->getElement('mahopdong'); ?></td>   
+            </tr>
+            <tr >
+                <td class="formLabel" >Mã Lô Nhuộm</td>
+                <td class="formEdit"><?=$this->element->getElement('malonhuom'); ?></td>   
+            </tr>
+            
+            <tr>
+				<td class="formLabel" ></td>
+				<td  class="formEdit"><?=$this->element->getElement('them'); ?></td> 
+            </tr>         
+        </tbody>
+    </table>
+</div>

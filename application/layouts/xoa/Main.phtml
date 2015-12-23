@@ -1,0 +1,59 @@
+<?php 
+        require_once '/../header.phtml';
+?>
+<?php 
+    
+    if($this->param->getParam("khachhang") == "true")
+    {
+        require_once 'khachhang.php';
+    }
+    else if($this->param->getParam("donhang") == "true")
+    {
+        require_once 'donhang.php';
+    }
+    else if($this->param->getParam("hopdong") == "true")
+    {
+        require_once 'hopdong.php';
+    }
+    else if($this->param->getParam("caymoc") == "true")
+    {
+        require_once 'caymoc.php';
+    }
+    else if($this->param->getParam("lonhuom") == "true")
+    {
+        require_once 'lonhuom.php';
+    }
+    else if($this->param->getParam("caytp") == "true")
+    {
+        require_once 'caytp.php';
+    }
+    else if($this->param->getParam("khohang") == "true")
+    {
+        require_once 'khohang.php';
+    }
+    else if($this->param->getParam("chonkhohang") == "true")
+    {
+        require_once 'chonkhohang.php';
+    }
+    else if($this->param->getParam("donxuat") == "true")
+    {
+        require_once 'donxuat.php';
+    }
+    else if($this->param->getParam("loaivai") == "true")
+    {
+        require_once 'loaivai.php';
+    }
+    else if($this->param->getParam("loaisoi") == "true")
+    {
+        require_once 'loaisoi.php';
+    }
+    else if($this->param->getParam("mau") == "true")
+    {
+        require_once 'mau.php';
+    }
+    else if($this->param->getParam("nhacungcap") == "true")
+    {
+        require_once 'nhacungcap.php';
+    }
+      
+?>

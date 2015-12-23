@@ -1,0 +1,21 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="loginLable" >Tên Tài Khoản</td>
+                <td class="loginEdit"><?=$this->element->getElement('username'); ?></td>
+                <td  class="loginButton"><?=$this->element->getElement('submit'); ?></td>
+            </tr>
+            <tr>
+                <td class="loginLable">Mật Khẩu</td>
+                <td class="loginEdit" ><?=$this->element->getElement('password'); ?></td>
+            </tr>
+                        
+        </tbody>
+    </table>
+</div>

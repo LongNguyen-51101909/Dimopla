@@ -1,0 +1,49 @@
+<?php 
+        require_once '/../header.phtml';
+?>
+
+<?php 
+        if($this->param->getParam("ncc") == "true")
+        {
+            require_once 'nhacungcap.php';
+        }
+        
+        if($this->param->getParam("khohang") == "true")
+        {
+            require_once 'khohang.php';
+        }
+        
+        if($this->param->getParam("loaisoi") == "true")
+        {
+            require_once 'loaisoi.php';
+        }
+        
+        if($this->param->getParam("loaivai") == "true")
+        {
+            require_once 'loaivai.php';
+        }
+        
+        if($this->param->getParam("khachhang") == "true")
+        {
+            require_once 'khachhang.php';
+        }    
+
+        if($this->param->getParam("mau") == "true")
+        {
+            require_once 'mau.php';
+        }
+        
+        if($this->param->getParam("hopdong") == "true")
+        {
+            require_once 'hopdong.php';
+        }
+        
+        if($this->param->getParam("donhang") == "true")
+        {
+            require_once 'donhang.php';
+        }
+        
+        
+
+      
+?>

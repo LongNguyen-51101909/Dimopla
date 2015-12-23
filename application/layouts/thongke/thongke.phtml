@@ -1,0 +1,98 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+    require_once '/../header.phtml';
+    ?>
+    <?php 
+        echo $this->headMeta();
+        echo $this->headLink();
+        
+        require_once '/../header.phtml';
+        
+        
+        
+        $hightlight ="" ;
+        $choose = $this->param->getParams();
+        
+        if(array_key_exists('khachhang',$choose)) $hightlight = "khachhang";
+        else if(array_key_exists('donhang',$choose)) $hightlight = "donhang";
+        else if(array_key_exists('hopdong',$choose)) $hightlight = "hopdong";
+        else if(array_key_exists('caymoc',$choose)) $hightlight = "caymoc";
+        else if(array_key_exists('caymoc_detail',$choose)) $hightlight = "caymoc";
+        else if(array_key_exists('taoctp',$choose)) $hightlight = "caythanhpham";
+        else if(array_key_exists('lonhuom',$choose)) $hightlight = "lonhuom";
+        else if(array_key_exists('khohang',$choose)) $hightlight = "khohang";
+        else if(array_key_exists('caythanhpham',$choose)) $hightlight = "caythanhpham";
+        else if(array_key_exists('ctp_detail',$choose)) $hightlight = "caythanhpham";
+        else if(array_key_exists('khotp',$choose)) $hightlight = "khotp";
+        else if(array_key_exists('donxuat',$choose)) $hightlight = "donxuat";
+        else if(array_key_exists('hoadon',$choose)) $hightlight = "hoadon";
+        else if(array_key_exists('loaivai',$choose)) $hightlight = "loaivai";
+        else if(array_key_exists('loaisoi',$choose)) $hightlight = "loaisoi";
+        else if(array_key_exists('mau',$choose)) $hightlight = "mau";
+        else if(array_key_exists('nhacungcap',$choose)) $hightlight = "nhacungcap";
+        else if(array_key_exists('khosoi',$choose)) $hightlight = "khosoi";
+        else if(array_key_exists('khomoc',$choose)) $hightlight = "khomoc";
+        else $hightlight = "khachhang";
+        
+        $router = Zend_Controller_Front::getInstance()->getRouter();
+            
+            
+?>
+
+
+<div id="mainql">
+    <div style="float: left">
+<!--         <p class="quanly_title">Quản lý dữ liệu</p> -->
+        <div style="display:block" id = "mainmenu">
+            <p <?php if($hightlight=="khachhang") echo 'class ="highlight"';?> ><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Khách Hàng</a></p>
+            <p <?php if($hightlight=="donhang") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Đơn Hàng</a></p>
+            <p <?php if($hightlight=="hopdong") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Hợp Đồng </a></p>
+            <p <?php if($hightlight=="caymoc") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Cây Mộc</a></p>
+            <p <?php if($hightlight=="lonhuom") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Lô Nhuộm</a></p>
+            <p <?php if($hightlight=="caythanhpham") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Cây Thành Phẩm</a></p>
+            <p <?php if($hightlight=="donxuat") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Đơn Xuất</a></p>
+            <p <?php if($hightlight=="hoadon") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Hóa Đơn</a></p>
+            <p <?php if($hightlight=="loaivai") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Loại Vải</a></p>
+            <p <?php if($hightlight=="loaisoi") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Loại Sợi</a></p>
+            <p <?php if($hightlight=="mau") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Màu</a></p>
+            <p <?php if($hightlight=="khohang") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Kho Hàng</a></p>
+            <p <?php if($hightlight=="khosoi") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Kho Sợi</a></p>
+            <p <?php if($hightlight=="khomoc") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Kho Mộc</a></p>
+            <p <?php if($hightlight=="khotp") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Kho TP</a></p>
+            <p <?php if($hightlight=="nhacungcap") echo 'class ="highlight"';?>><a  href="<?php echo HOST_PROJECT."/index/thongke"?>">Nhà Cung Cấp</a></p>
+            
+        </div>
+        <span style="clear: both"></span>
+    </div>
+ 
+    <div class="thongke" id ="thongke">
+        <div class = "radioThongke" id="radioThongke">
+        <input type='radio' name='loai_thongke' value='1' checked style =""/> Thong ke thang </br>
+        <input type='radio' name='loai_thongke' value='2'/> Thong ke quy </br>
+        <input type='radio' name='loai_thongke' value='3'/> Thong ke nam </br>
+        </div>
+        <div class='chart' id='chart_vai' style='display:inline-block'>
+        </div>
+        <div class='chart' id='chart_mau' style='margin-left:100px;display:inline-block'>
+        </div>
+
+        <div id='thongke_thang' style='display:none'>
+        </div>
+        <div id='thongke_quy' style='display:none'>
+        </div>
+        <div id='thongke_name' style='display:none'>
+        </div>
+
+        
+    </div>
+</div>
+    <script type='text/javascript'>
+        $(function() {
+            $("input[name=loai_thongke]").click(function() {
+                if($(this).val() == '1') {
+                    $("#thongke_thang").css('display', 'block');
+                }
+            })
+        })
+    </script>
