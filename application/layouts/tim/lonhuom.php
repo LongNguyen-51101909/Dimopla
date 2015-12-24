@@ -7,9 +7,9 @@ echo $form;
 if ($this->param->isPost()) {
     $model = new Model_Lonhuom();
     $key = $this->param->getParam("key");
-    $dataSearch = $model->searchByKey($key);
+    $lonhuoms = $model->getWhereLike($key);
     
-    if ($dataSearch != false) {
+    if ($lonhuoms != false) {
         
         $title = array(
             "Tên Lô Nhuộm",
@@ -21,7 +21,7 @@ if ($this->param->isPost()) {
         $data = new My_Data();
         
         $maincontent = array();
-        foreach ($dataSearch as $item) {
+        foreach ($lonhuoms as $item) {
             $mydate = Zend_Locale_Format::getDate($item['NgayNhuom'], array(
                 "date_format" => "yyyy.MM.dd"
             ));

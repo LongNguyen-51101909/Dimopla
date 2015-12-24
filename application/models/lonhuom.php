@@ -24,6 +24,17 @@ class Model_Lonhuom extends Zend_Db_Table_Abstract
             return false;
     }
     
+    // Long edit
+    public function getWhereLike($key)
+    {
+        $se = $this->select()->where("TenLoNhuom like ?", "%$key%");
+        $kq = $this->fetchAll($se)->toArray();
+        if($kq)
+            return $kq;
+        else
+            return false;
+    }
+    
     public function getWhere_mau($id)
     {
         $se = $this->select()->where("MaMau = ?",$id);
@@ -63,16 +74,6 @@ class Model_Lonhuom extends Zend_Db_Table_Abstract
         $kq = $this->delete("MaLoNhuom = '$id'");
         if($kq)
             return true;
-        else
-            return false;
-    }
-    // Long edit
-    public function searchByKey($key)
-    {
-        $se = $this->select()->where("TenLoNhuom like ?", "%$key%");
-        $kq = $this->fetchAll($se)->toArray();
-        if($kq)
-            return $kq;
         else
             return false;
     }

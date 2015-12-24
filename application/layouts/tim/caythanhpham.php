@@ -14,9 +14,9 @@ if ($this->param->isPost()) {
     $caymoc = new Model_Caymoc();
     
     $cmchose = $this->param->getParam("caythanhphamtim");
-    $caythanhpham = $cm->getWhereLike($cmchose);
+    $caythanhphams = $cm->getWhereLike($cmchose);
     
-    if ($caythanhpham) {
+    if ($caythanhphams) {
         $title = array(
             "Mã Cây TP",
             "Loại Vải",
@@ -26,7 +26,7 @@ if ($this->param->isPost()) {
             "Nhập Kho"
         );
         $maincontent = array();
-        foreach ($caythanhpham as $item) {
+        foreach ($caythanhphams as $item) {
             $caymocrow = $caymoc->getWhere_ctp($item['MaCTP']);
             $loaivairow = $loaivai->getWhere($caymocrow['MaVai']);
             $lonhuomrow = $lonhuom->getWhere($caymocrow['MaLoNhuom']);

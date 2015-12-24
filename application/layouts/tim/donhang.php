@@ -9,14 +9,14 @@
         $model = new Model_Donhang();
         $kh = new Model_Khachhang();
         $key = $this->param->getParam("key");
-        $dataSearch = $model->searchByKey($key);
+        $donhangs = $model->searchByKey($key);
         
-        if($dataSearch != false){
+        if($donhangs != false){
     
             $title = array("Mã Đơn Hàng","Tên Đơn Hàng","Ngày Đặt","Tiền Đặt Hàng","Khách Hàng","Số Mét Vải","Tùy Chỉnh");
             
             $maincontent = array();
-            foreach ($dataSearch as $item)
+            foreach ($donhangs as $item)
             {
             $content = array(
                 $item['MaDonHang'],

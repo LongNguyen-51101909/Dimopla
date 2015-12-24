@@ -28,17 +28,7 @@ class Model_Khachhang extends Zend_Db_Table_Abstract
             return false;
     }
     
-    public function getWhere_congty()
-    {
-        $se = $this->select()->where("TenKhachHang = ?",'Công Ty');
-        $kq = $this->fetchAll($se)->toArray();
-        if($kq)
-            return $this->fetchRow($se)->toArray();
-        else
-            return false;
-    }
-    // long add
-    public function searchByKhachhng($kh)
+    public function getWhereLike($kh)
     {
         $se = $this->select()->where("TenKhachHang like ?", "%$kh%");
         $kq = $this->fetchAll($se)->toArray();
@@ -48,7 +38,16 @@ class Model_Khachhang extends Zend_Db_Table_Abstract
             return false;
     }
     
-    //==============================================================
+    public function getWhere_congty()
+    {
+        $se = $this->select()->where("TenKhachHang = ?",'Công Ty');
+        $kq = $this->fetchAll($se)->toArray();
+        if($kq)
+            return $this->fetchRow($se)->toArray();
+        else
+            return false;
+    }
+    
     public function getWhereIdSp($id_sanpham)
     {
         $se = $this->select()->where("id_sanpham = ?",$id_sanpham);
