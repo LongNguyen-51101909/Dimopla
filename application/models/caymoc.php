@@ -24,6 +24,17 @@ class Model_Caymoc extends Zend_Db_Table_Abstract
             return false;
     }
     
+    // Long edit
+    public function getWhereLike($key)
+    {
+        $se = $this->select()->where("MaMoc like ?", "%$key%");
+        $kq = $this->fetchAll($se)->toArray();
+        if($kq)
+            return $kq;
+        else
+            return false;
+    }
+    
     public function getWhere_khomoc($id_kho)
     {
         $se = $this->select()->where("MaKhoMoc = ?",$id_kho);

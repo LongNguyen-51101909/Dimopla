@@ -1,0 +1,16 @@
+<?php 
+    echo $this->headMeta();
+    echo $this->headLink();
+?>
+
+<div style="padding: 8px;" class ="login">
+    <table >
+        <tbody>
+            <tr >
+                <td class="formLabel" >Mã cây mộc</td>
+                <td class="formEdit"><?=$this->element->getElement('caymoctim'); ?></td>
+                <td style="padding-left: 40px;"><?=$this->element->getElement('them'); ?></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

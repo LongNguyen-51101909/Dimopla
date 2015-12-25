@@ -78,9 +78,17 @@
     {
         require_once APPLICATION_PATH.'/layouts/tim/hopdong.php';
     }
+    else if(array_key_exists('caymoc',$myparam))
+    {
+        require_once APPLICATION_PATH.'/layouts/tim/caymoc.php';
+    }
     else if(array_key_exists('lonhuom',$myparam))
     {
         require_once APPLICATION_PATH.'/layouts/tim/lonhuom.php';
+    }
+    else if(array_key_exists('caythanhpham',$myparam))
+    {
+        require_once APPLICATION_PATH.'/layouts/tim/caythanhpham.php';
     }
     else
         {
