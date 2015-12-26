@@ -7,7 +7,14 @@ echo $form;
 if ($this->param->isPost()) {
     $kh = new Model_Khachhang();
     $khchose = $this->param->getParam("khachhangtim");
-    $khachhang = $kh->getWhereLike($khchose);
+    //check null value post
+    if (is_null($khchose) || empty($khchose)) {
+
+        echo "Bạn phải nhập giá trị tìm kiếm";
+    }
+    else {
+        $khachhang = $kh->getWhereLike($khchose);
+    }
     if ($khachhang) {
         
         $title = array(
