@@ -19,6 +19,7 @@
           <actionMethod actionName="taichinh"/>
           <actionMethod actionName="thongke"/>
           <actionMethod actionName="tim"/>
+          <actionMethod actionName="export"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
       </controllersDirectory>
@@ -64,6 +65,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="tim"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="export"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

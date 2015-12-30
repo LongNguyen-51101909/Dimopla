@@ -94,8 +94,17 @@ class IndexController extends Zend_Controller_Action
         Zend_Layout::startMVC($option);
     }
 
+    public function exportAction()
+    {
+        $this->view->param = $this->_request;
+        $option =array("layout"=>"index", "layoutPath"=>APPLICATION_PATH."/layouts/export");
+        Zend_Layout::startMVC($option);
+    }
+
 
 }
+
+
 
 
 
