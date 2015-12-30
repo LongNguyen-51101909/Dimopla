@@ -15,7 +15,7 @@ class Form_Searchs_Khachhang extends Zend_Form {
         //$chonkhohang->setAttrib('class', 'formEdit')->setValue($khohang[0]['MaKho']);
 
 //         $khohang= $this->createElement('select', 'khachhang', array('multioptions'=>$opKhoHang,'decorators' => array('ViewHelper'),));
-        $khachhangtim= $this->createElement('text', 'khachhangtim', array('decorators' => array('ViewHelper'),));
+        $khachhangtim= $this->createElement('text', 'khachhangtim', array('decorators' => array('ViewHelper'),'value' => $_POST["khachhangtim"]));
         $them =  $this->createElement('submit', 'them', array('decorators' => array('ViewHelper'),'label'=>'Chọn'));
 
         $khachhangtim->setAttrib('class', 'formEdit');
