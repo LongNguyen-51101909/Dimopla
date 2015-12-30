@@ -11,7 +11,7 @@ class Form_Searchs_Donhang extends Zend_Form {
 
         $data = new My_Data();
         
-        $key = $this->createElement('text', 'key', array('decorators' => array('ViewHelper'),));
+        $key = $this->createElement('text', 'key', array('decorators' => array('ViewHelper'),'value' => $_POST["key"]));
         $them =  $this->createElement('submit', 'them', array('decorators' => array('ViewHelper'),'label'=>'Chọn'));
 
         $key->setAttrib('class', 'formEdit');

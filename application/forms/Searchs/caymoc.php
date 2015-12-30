@@ -26,7 +26,7 @@ class Form_Searchs_Caymoc extends Zend_Form
         $caymoctim = $this->createElement('text', 'caymoctim', array(
             'decorators' => array(
                 'ViewHelper'
-            )
+            ),'value' => $_POST["caymoctim"]
         ));
         $them = $this->createElement('submit', 'them', array(
             'decorators' => array(
